@@ -91,3 +91,31 @@ SELECT *
 FROM `loan_db.customers`
 WHERE ApplicantIncome<3000 OR (CoapplicantIncome>2000 AND Married= TRUE )
 LIMIT 10;
+
+/*16.List 3 Richest Female customers*/
+SELECT custID,Gender,ApplicantIncome
+FROM `loan_db.customers`
+WHERE Gender='Female'
+ORDER BY ApplicantIncome DESC
+LIMIT 3;
+
+/*17. Show Total No of msale & female Customers*/
+SELECT Gender,count(custID)
+FROM `loan_db.customers`
+GROUP BY Gender;
+
+/*18.Show List Of Female Customers whose Loans got rejected*/
+SELECT l.Loan_ID,l.Loan_Status, custID,Gender
+FROM `loan_db.loans` as l INNER JOIN `loan_db.customers` as c ON l.Loan_ID=c.Loan_ID
+WHERE l.Loan_Status = false and c.Gender = 'Female' ;
+
+/*19.Show The list of customers who has deposited money and have high credit card balance*/
+SELECT deposit.CustID,highbal.CCBalance, highbal.Card_Type ,deposit.DepositAmt
+FROM `loan_db.depositcustomers` as deposit inner join `loan_db.highcreditcardbalancecustomers` as highbal on deposit.CustID = highbal.CustID
+order by highbal.CCBalance desc;
+
+/*20.Show the total income of Male and Female Customers of the customers whose loans were approved*/
+SELECT SUM(cust.ApplicantIncome)as totalincome ,cust.Gender, count(lapproved.Loan_Status) as Totalloans
+FROM `loan_db.customers` as cust inner join `loan_db.loans` as lapproved on cust.Loan_ID = lapproved.Loan_ID
+WHERE lapproved.Loan_Status = True
+GROUP BY cust.Gender, lapproved.Loan_Status;
