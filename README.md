@@ -1,2 +1,2 @@
-# SQL-Practice-on-BigQuery
+# SQL-Practice
 Hands-on SQL practice queries on a loan dataset using Google BigQuery- part of my Business Analyst skill-building journey.
