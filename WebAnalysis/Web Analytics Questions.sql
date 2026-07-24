@@ -1,5 +1,6 @@
+Questions on Basic SQL 
 /Webanalytics Case - Basic SQL/
-
+/*
 Please create a new database webanalytics_db_new
 Then, import the two attached CSV files as separate tables.
  
@@ -24,4 +25,4 @@ and time_spent was more than 60. Also, show the day of the week for these visits
 - Sri Lanka
 - Fiji
 If there are, please list their visit Id, Avg Income, and DOB.
-
+*/
