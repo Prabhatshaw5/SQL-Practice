@@ -132,3 +132,14 @@ select custID,Loan_ID, ApplicantIncome, Self_Employed, case
                                                        when Self_Employed="No" and ApplicantIncome> 6000 then "Eligible"
                                                        else "Not Eligible" end as status
 from customers;
+
+/* 2. Categorize only the married customers into 4 categories:
+Married Rich Customers if the income is more than 10000
+Married Avg Customers if the income is between 6000 and 9999
+Below Avg Income customers for the rest*/
+
+select custID,Loan_ID, ApplicantIncome, Married, case 
+                                                       when Married="Yes" and ApplicantIncome> 10000 then "Rich Customers"
+                                                       when Married="Yes" and ApplicantIncome between 6000 and 9999 then "Avg Customers"
+                                                       else "Below Avg customers" end as status
+from customers;
