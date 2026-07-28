@@ -119,3 +119,16 @@ SELECT SUM(cust.ApplicantIncome)as totalincome ,cust.Gender, count(lapproved.Loa
 FROM `loan_db.customers` as cust inner join `loan_db.loans` as lapproved on cust.Loan_ID = lapproved.Loan_ID
 WHERE lapproved.Loan_Status = True
 GROUP BY cust.Gender, lapproved.Loan_Status;
+
+
+/*Questions: loans_dataset
+1. Check whether a customer is eligible for a home loan as per
+below eligiblity criteria: If self employed, then ApplicantIncome > 7000
+if not self employed, then ApplicantIncome > 6000
+Show a status column which says Eligible or Not Eligible.*/
+
+select custID,Loan_ID, ApplicantIncome, Self_Employed, case 
+                                                       when Self_Employed="Yes" and ApplicantIncome> 7000 then "Eligible"
+                                                       when Self_Employed="No" and ApplicantIncome> 6000 then "Eligible"
+                                                       else "Not Eligible" end as status
+from customers;
