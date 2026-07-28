@@ -33,3 +33,7 @@ from student_raw_transformed_withtime;
 /*6.• Show the age in the following format: years in one column and the month in another.*/
 select fullname, timestampdiff(year, str_to_date(dob, '%d-%m-%y'),curdate() )as years, mod(timestampdiff (month,str_to_date(dob, '%d-%m-%y'),curdate() ),12 ) as months
 from student_raw_transformed_withtime;
+
+-- categorize the students as Mtest>=95 then scholar or dumb
+select id,fullname, if(MTest>=95,'scholar','dumb') as status
+from student_raw_transformed_withtime;
