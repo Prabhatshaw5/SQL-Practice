@@ -1,33 +1,4 @@
-create database student_db;
-use student_db;
-select *
-from student;
 
--- 1.	a)	List all the 2A students
-select *
-from student
-where class = '2A';
--- b)	List the names and Math test scores of the 1B boys.
-select name, Mtest, class
-from student
-where class = '1B' and sex = 'M';
-
--- 2.	a)	List the classes, names of students whose names contain the letter "e" as the third letter.
-select name, class
-from student
-where name like '__e%';
--- b)	List the classes, names of students whose names start with "T" and do not contain "y".
-select name, class
-from student
-where name like 'T%' and name not like '%Y%';
--- c)	List the names of 1A students whose Math test score is not 51, 61, 71, 81, or 91.
-select name, class,Mtest
-from student
-where class= '1A' and Mtest not in (51,61,71,81,91);
--- d)	List the students who were born between 22 March 1986 and 21 April 1986
-select name, dob
-from student
-where str_to_date(dob, '%d-%m-%Y') between '1986-03-22' and '1986-04-22';
 
 -- 3.	a)	Find the number of girls living in TST.
 select name, class
