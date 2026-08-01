@@ -129,5 +129,29 @@ SELECT Player,Team
 FROM `ipl_analysis.2019_bowlers_new`
 WHERE _4w>0;
 
+/*23. Name 5 such bowlers who bowled the least number of overs in 2018.*/
+SELECT Player,Team
+FROM `ipl_analysis.2018_bowlers`
+ORDER BY Overs ASC
+LIMIT 5;
+
+/*24. Which team scored the maximum number of runs in 2019?*/
+SELECT Team
+FROM `ipl_analysis.2019_batsmen`
+ORDER BY Runs DESC;
+
+/*25.Name the Batsmen who has hit maximum half centuries, both the years combined*/
+SELECT Player, SUM(_50s) as Total50s, Team
+FROM 
+(
+SELECT Player,_50s, Team
+FROM `ipl_analysis.2018_batsmen_new` 
+union all 
+SELECT Player, _50s, Team
+FROM `ipl_analysis.2019_batsmen` 
+)
+GROUP BY Player, Team
+ORDER BY Total50s DESC
+LIMIT 1;
 
 
