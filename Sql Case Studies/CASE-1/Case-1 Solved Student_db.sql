@@ -80,4 +80,25 @@ select Part_no,Descript,QTY
 from client 
 order by Qty asc; 
 -- b)	Produce a list of parts that consist of the keyword ‘Shaft’ in the description.
-
+select Part_no,Descript
+from client 
+where descript like '%Shaft%'; 
+-- c)	Produce a list of parts that have a quantity more than 20 and are supplied by ‘China Metals Co.’
+select Part_no,Descript,Qty,Supplier
+from client 
+where Qty> 20 and Supplier = 'China Metals Co.'; 
+-- d)	List all the suppliers without duplication.
+select distinct Supplier
+from client ; 
+-- e)	Increase the quantity by 10 for those parts with quantity less than 10.
+select Descript,Qty
+from client
+where qty <10 ;
+update client set qty= qty+10
+where qty <10 ;
+-- f)	Delete records with part_no equal to 879, 654, 231 and 234
+delete from client 
+where part_no in (879,654,231,234);
+-- g)	Add a field “Date_purchase” to record the date of purchase.
+alter table client
+add Date_purchase date;
