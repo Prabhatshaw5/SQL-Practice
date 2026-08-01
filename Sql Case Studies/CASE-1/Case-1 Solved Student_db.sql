@@ -2,7 +2,7 @@ create database student_db;
 use student_db;
 select *
 from student;
-fffffffffffffffffffffff
+
 -- 1.	a)	List all the 2A students
 select *
 from student
