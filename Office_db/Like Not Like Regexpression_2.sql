@@ -173,22 +173,3 @@ SELECT FullName
 FROM Student
 WHERE FullName NOT RegExp "[e-z]";
 
-/*Can we extract numbers using RegExp?*/
-use student;
-
-select *
-from student
-where fullname NOT regexp "[3-7]";
-
-select *
-from student
-where fullname NOT regexp "[e-z]";
-
-select fullname
-from student
-where fullname regexp "^[abcd][abcd]*[abcd]$";
-
-/*Names that contain only - a u or e*/
-select fullname
-from student
-where fullname regexp "^[aue][aue]*[aue]$"
