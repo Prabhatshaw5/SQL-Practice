@@ -78,3 +78,28 @@ where custID = 101;
 
 select * from customers;
 
+/*Practice questions:
+1. Create a new table called materials with the following structure and data:
+MaterialID | MaterialName | UnitCost | PriceDate  | IsAvailableInIndia
+1          | Steel        | 5        | 2023-12-08 | TRUE
+2          | Plastic      | 2        | 2023-11-02 | TRUE
+3          | Aluminum     | 4        | 2023-10-23 | TRUE
+4          | Rubber       | 1.5      | 2024-04-19 | FALSE
+5          | Copper       | 6        | 2024-05-08 | FALSE
+
+2. Change the UnitCost to 1.8 for MaterialID 4
+3. Add a new row with MaterialID 6, MaterialName 'Glass', UnitCost 3, PriceDate '2024-06-15', IsAvailableInIndia TRUE    
+4. Delete the material details of MaterialID 6
+
+-- Bonus Assignment -- 
+1. Create a new table called as loans with the following 
+structure and data: 
+loan_ID | loan_amt	| custID
+1			43434	  101
+2			4222	  201
+3			66533	  101
+
+2. Change the loan_amt to 5555 for loan_Id 2
+3. Add a new row with loan_ID 4, loan_amt 666, custId 201	
+4. Delete the loan details of loan_ID 4
+*/
